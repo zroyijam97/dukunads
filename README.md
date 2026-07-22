@@ -31,7 +31,7 @@ Dukun Ads covers six pillars — all reachable from the AI Connector:
 | 2 | **Meta Ads** | Create/read/update campaigns, ad sets & ads; budgets, targeting, reach estimates |
 | 3 | **Reporting** | Automatic ad reports to Telegram / WhatsApp / Email; per-campaign + overall summary |
 | 4 | **WhatsApp inbox + leads** | Read conversations, manage leads (status, tags, assignment, value) |
-| 5 | **Sales pages + Meta Pixel/CAPI** | List sales pages, manage pixels at campaign / ad-set / ad level, verify events |
+| 5 | **Sales pages + Pixel/CAPI + Web analytics** | Track the visitor journey (sessions, sources, device, scroll, time), purchases & revenue; combine behaviour + ads data for conversion advice |
 | 6 | **Autopilot** | Create per-account autopilots that post daily on a schedule |
 
 ---
@@ -103,6 +103,10 @@ Just ask in plain language. Behind the scenes the AI calls the right tools.
 **Leads**
 > "Pull the latest leads from lead form X and mark the hot ones as qualified."
 → `list_lead_forms` → `get_leads` → `update_lead`
+
+**Conversion optimization (behaviour + ads)**
+> "My ads spend is up but sales are flat — what should I fix to improve conversions?"
+→ `web_analytics` (traffic sources, device, scroll, bounce, conv-rate) + `campaign_dashboard` (spend, CTR, CPC) → AI recommends where to improve
 
 See the full list in **[docs/TOOLS.md](docs/TOOLS.md)**.
 
