@@ -21,7 +21,7 @@ The Dukun Ads AI Connector exposes **41 tools**. Every tool is scoped to the log
 
 | Tool | Purpose | Key params |
 |------|---------|-----------|
-| `create_ad_set` | Create an ad set (never send `status`; parent campaign is PAUSED). | `accountId`, `name`, `campaignId`, `optimizationGoal`, `destinationType`, `countries`, `dailyBudgetSen`, `promotedObjectPageId?` |
+| `create_ad_set` | Create an ad set (never send `status`; parent campaign is PAUSED). For conversion ads, bind a pixel directly here. | `accountId`, `name`, `campaignId`, `optimizationGoal`, `destinationType`, `countries`, `dailyBudgetSen`, `promotedObjectPageId?`, `promotedObjectPixelId?`, `promotedObjectCustomEventType?` (PURCHASE/LEAD/…) |
 | `create_ad` | Create an ad. | `accountId`, `adName`, `adSetId`, `pageId`, `format`, `primaryText`, `headline`, `callToAction`, `destinationUrl`, `imageUrl` |
 | `update_ad_set` | ON/OFF or edit an ad set. | `adSetId`, `status` (`ACTIVE`/`PAUSED`), `name?`, `dailyBudgetSen?` |
 | `update_ad` | ON/OFF or edit an ad. | `adId`, `status`, `name?` |
@@ -50,7 +50,7 @@ The Dukun Ads AI Connector exposes **41 tools**. Every tool is scoped to the log
 | Tool | Purpose | Key params |
 |------|---------|-----------|
 | `list_pixels` | Pixels for an account (id, name, code). | `accountId` |
-| `create_pixel` | Create a new pixel. | `accountId`, `name` |
+| `create_pixel` | **Create a new Meta Pixel** (via AdFlow — no Events Manager needed). | `accountId`, `name` |
 | `attach_pixel` | Attach a pixel to an ad set (campaign & ads inherit). Sets conversion optimization. | `accountId`, `adSetId`, `pixelId`, `conversionEvent?` |
 | `pixel_stats` | Verify a pixel & read events (empty = no events yet). | `accountId`, `pixelId` |
 
