@@ -1,6 +1,6 @@
 # Tool reference
 
-The Dukun Ads AI Connector exposes **41 tools**. Every tool is scoped to the logged-in user. Below, `accountId` means a Meta ad-account id like `act_1234567890` (get it from `list_ad_accounts`).
+The Dukun Ads AI Connector exposes **43 tools**. Every tool is scoped to the logged-in user. Below, `accountId` means a Meta ad-account id like `act_1234567890` (get it from `list_ad_accounts`).
 
 > Tip for the AI: for any ads task, **always start with `list_ad_accounts`** to get the `accountId`.
 
@@ -83,7 +83,9 @@ Frequencies: `5m`, `15m`, `30m`, `hourly`, `daily`, `weekly`. Channels: Telegram
 |------|---------|-----------|
 | `list_autopilots` | All autopilots (per social account). | — |
 | `create_autopilot` | Create an autopilot (many per account allowed). | `accountId`, `mode` (`text`/`image`/`video`), `times` (`HH:mm`, KL time) |
-| `list_sales_pages` | Sales pages + conversions & revenue. | — |
+| `list_sales_pages` | Sales pages + conversions & revenue + trackKey + install snippet URL. | — |
+| `create_sales_page` | **Create a sales page + tracking code** (Meta Pixel + conversion + behaviour). Returns trackKey + `<script>` snippet. Bind a pixel with `pixelId` + `accountId` → server-side CAPI via AdFlow, no token. | `name`, `url?`, `pixelId?`, `accountId?`, `currency?` |
+| `list_conversions` | Raw conversion events for a page (or all): event, RM value, source/medium/campaign, fbclid, email, eventId, time. | `salesPageId?`, `days?`, `limit?` |
 | `web_analytics` | Visitor journey/behaviour analytics: sessions, conversion rate, revenue, bounce, avg scroll & time, breakdown by traffic source / device / campaign. **Combine with `ad_insights` / `campaign_dashboard` to recommend conversion improvements.** | `salesPageId?`, `days?` (default 30) |
 
 ---
